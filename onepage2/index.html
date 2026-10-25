@@ -2,519 +2,483 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="藍天咖啡，為手沖咖啡愛好者挑選當季精品咖啡豆，讓每一杯都清澈、明亮、值得細品。">
-  <title>藍天咖啡｜讓風味，慢慢抵達</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexus Gear 電競特區：探索高效能電競周邊、比較硬體規格，與玩家分享實戰心得。">
+  <meta name="theme-color" content="#080b14">
+  <title>Nexus Gear｜為勝利而生</title>
   <style>
     :root {
-      --navy: #062742;
-      --blue: #0c5b95;
-      --sky: #75c6e8;
-      --mist: #eaf5f7;
-      --cream: #fbfaf6;
-      --ink: #122534;
-      --muted: #607482;
-      --line: #d7e4e8;
-      --sand: #e5b66b;
-      --shadow: 0 18px 50px rgba(6, 39, 66, .13);
+      color-scheme: dark;
+      --bg: #080b14;
+      --panel: #101625;
+      --panel2: #151e30;
+      --text: #f2f6ff;
+      --muted: #9ba9bf;
+      --blue: #28d7ff;
+      --purple: #9a6bff;
+      --line: rgba(153,184,224,.16);
+      --max: 1160px;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
     body {
       margin: 0;
-      color: var(--ink);
-      background: var(--cream);
-      font-family: "Noto Sans TC", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 700px 520px at 92% 0%, rgba(40,215,255,.10), transparent 68%),
+        var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.65;
     }
     a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button { cursor: pointer; }
     img { display: block; max-width: 100%; }
-    :focus-visible { outline: 3px solid var(--sky); outline-offset: 4px; }
-
-    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
     .eyebrow {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin: 0 0 17px;
+      gap: 11px;
+      margin: 0 0 14px;
       color: var(--blue);
-      font-size: 11px;
-      font-weight: 700;
+      font-size: .72rem;
+      font-weight: 750;
       letter-spacing: .18em;
-      line-height: 1.35;
+      line-height: 1.4;
+      text-transform: uppercase;
     }
-    .eyebrow::before { width: 28px; height: 1px; background: currentColor; content: ""; }
+    .eyebrow::before { width: 25px; height: 1px; flex: 0 0 auto; background: currentColor; content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
     .section-title {
-      margin: 0;
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(30px, 4vw, 46px);
-      font-weight: 900;
-      letter-spacing: .035em;
-      line-height: 1.28;
+      margin-bottom: 0;
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      letter-spacing: -.04em;
+      line-height: 1.2;
     }
-    .blue-word { color: var(--blue); }
-    .section-copy { margin: 20px 0 0; color: var(--muted); }
-    .text-link {
-      display: inline-block;
-      margin-top: 29px;
-      padding-bottom: 7px;
-      border-bottom: 1px solid var(--blue);
-      color: var(--blue);
-      font-size: 14px;
-      font-weight: 700;
-      transition: color .2s ease, letter-spacing .2s ease;
+    .section-copy { max-width: 420px; margin: 13px 0 0; color: var(--muted); }
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      font-size: .92rem;
+      font-weight: 750;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
     }
-    .text-link:hover { color: var(--navy); letter-spacing: .04em; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary {
+      color: #06111a;
+      background: var(--blue);
+      box-shadow: 0 5px 18px rgba(40,215,255,.15);
+    }
+    .button-primary:hover { background: #70e6ff; box-shadow: 0 8px 25px rgba(40,215,255,.25); }
+    .button-secondary { border-color: var(--line); color: var(--text); background: rgba(255,255,255,.025); }
+    .button-secondary:hover { border-color: rgba(40,215,255,.6); background: rgba(40,215,255,.07); }
+    .text-link { color: var(--blue); font-weight: 700; }
+    .text-link:hover { color: #8deaff; text-decoration: underline; text-underline-offset: 4px; }
 
-    /* Header */
+    /* 導覽 */
     .site-header {
-      position: absolute;
+      position: sticky;
       z-index: 10;
       top: 0;
-      left: 0;
-      width: 100%;
-      border-bottom: 1px solid rgba(255,255,255,.23);
-      color: #fff;
+      border-bottom: 1px solid var(--line);
+      background: rgba(8,11,20,.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
-    .nav-bar {
+    .nav-bar { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; min-width: max-content; align-items: center; gap: 10px; font-size: .95rem; font-weight: 850; letter-spacing: .08em; }
+    .brand-mark {
+      display: grid;
+      width: 31px;
+      height: 31px;
+      place-items: center;
+      border: 1px solid rgba(40,215,255,.65);
+      border-radius: 9px;
+      color: var(--blue);
+      font-size: .83rem;
+      transform: rotate(-8deg);
+    }
+    .brand-gear { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.6vw, 32px); margin: 0; padding: 0; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: .9rem; transition: color .18s ease, border-color .18s ease; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .nav-cta { padding: 9px 14px; border: 1px solid rgba(40,215,255,.5); border-radius: 7px; color: var(--blue); font-weight: 700; }
+    .nav-links .nav-cta:hover { border-color: var(--blue); background: rgba(40,215,255,.08); }
+
+    /* Hero */
+    .hero { display: grid; min-height: 560px; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px; padding-block: 74px 66px; }
+    .hero-content { padding-block: 18px; }
+    .hero .eyebrow { margin-bottom: 20px; }
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2.8rem, 6vw, 5.3rem);
+      font-weight: 850;
+      letter-spacing: -.045em;
+      line-height: 1.06;
+    }
+    .hero-title span { display: block; color: var(--blue); text-shadow: 0 0 32px rgba(40,215,255,.2); }
+    .hero-lede { max-width: 520px; margin: 23px 0 0; color: var(--muted); font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: clamp(18px, 3vw, 34px); margin: 36px 0 0; padding: 0; list-style: none; }
+    .hero-stats li { display: grid; gap: 1px; }
+    .hero-stats strong { color: var(--text); font-size: 1.05rem; line-height: 1.3; }
+    .hero-stats span { color: var(--muted); font-size: .78rem; }
+    .hero-visual {
+      position: relative;
+      display: grid;
+      min-height: 350px;
+      place-items: center;
+      isolation: isolate;
+    }
+    .hero-visual::before {
+      position: absolute;
+      z-index: -1;
+      width: min(100%, 440px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40,215,255,.22), rgba(154,107,255,.12) 42%, transparent 70%);
+      filter: blur(20px);
+      content: "";
+    }
+    .hero-frame {
+      position: relative;
+      width: min(100%, 410px);
+      aspect-ratio: 1.25;
+      overflow: hidden;
+      border: 1px solid rgba(153,184,224,.3);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #1a2b45, #0b1323 72%);
+      box-shadow: 0 25px 70px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.035);
+    }
+    .hero-frame::after { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,8,16,.04) 35%, rgba(4,8,16,.76)); content: ""; }
+    .hero-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .headset-icon {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      font-size: clamp(5rem, 12vw, 8rem);
+      line-height: 1;
+      filter: drop-shadow(0 0 22px rgba(40,215,255,.75));
+      transform: translate(-50%, -56%);
+    }
+    .hero-frame-label {
+      position: absolute;
+      z-index: 1;
+      right: 20px;
+      bottom: 16px;
+      left: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(242,246,255,.78);
+      font-size: .67rem;
+      font-weight: 750;
+      letter-spacing: .16em;
+    }
+
+    /* 裝備系列 */
+    .section { padding-block: 76px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-heading .section-copy { margin: 0; }
+    .gear-grid, .review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .product-card, .review-card {
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: linear-gradient(145deg, var(--panel), var(--panel2));
+      box-shadow: 0 14px 35px rgba(0,0,0,.12);
+    }
+    .product-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      padding: 22px;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .product-card:hover { border-color: rgba(40,215,255,.48); box-shadow: 0 18px 40px rgba(0,0,0,.22); transform: translateY(-5px); }
+    .product-visual {
+      display: grid;
+      height: 165px;
+      place-items: center;
+      margin-bottom: 19px;
+      border: 1px solid rgba(153,184,224,.08);
+      border-radius: 9px;
+      background: radial-gradient(ellipse at center, rgba(40,215,255,.15), transparent 62%), #0b1120;
+      color: var(--blue);
+      font-size: 4.7rem;
+      line-height: 1;
+    }
+    .product-meta { margin: 0; color: var(--blue); font-size: .68rem; font-weight: 750; letter-spacing: .14em; }
+    .product-name { margin: 8px 0 0; font-size: 1.22rem; letter-spacing: -.025em; line-height: 1.35; }
+    .product-description { margin: 10px 0 22px; color: var(--muted); font-size: .91rem; }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 15px; border-top: 1px solid var(--line); }
+    .product-price { font-size: .92rem; font-weight: 750; white-space: nowrap; }
+    .product-footer .text-link { font-size: .88rem; white-space: nowrap; }
+
+    /* 規格比較 */
+    .compare-section { padding-block: 16px 76px; }
+    .compare-panel {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      align-items: center;
+      gap: 34px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(21,30,48,.95), rgba(12,18,31,.96));
+      box-shadow: 0 24px 65px rgba(0,0,0,.18);
+    }
+    .compare-copy .section-title { font-size: clamp(1.8rem, 3vw, 2.35rem); }
+    .compare-copy .section-copy { max-width: 350px; }
+    .compare-link { display: inline-block; margin-top: 22px; }
+    .table-scroll { min-width: 0; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+    .spec-table { width: 100%; min-width: 590px; border-collapse: collapse; font-size: .88rem; text-align: left; }
+    .spec-table th, .spec-table td { padding: 12px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    .spec-table thead th { color: var(--muted); font-size: .77rem; font-weight: 650; }
+    .spec-table tbody th { color: var(--muted); font-weight: 650; }
+    .spec-table td { font-weight: 700; }
+    .spec-table tbody tr:last-child th, .spec-table tbody tr:last-child td { border-bottom: 0; }
+    .spec-table tbody tr:hover { background: rgba(40,215,255,.035); }
+
+    /* 玩家評價 */
+    .review-card { display: flex; min-height: 245px; flex-direction: column; padding: 22px; }
+    .stars { color: #ffd66b; font-size: .95rem; letter-spacing: .12em; }
+    .review-quote { margin: 16px 0 24px; color: #dce5f4; font-size: 1rem; }
+    .review-author { display: flex; align-items: center; gap: 11px; margin-top: auto; }
+    .avatar { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--blue); background: #1c2b40; font-weight: 800; }
+    .author-name { display: block; font-size: .9rem; font-weight: 750; line-height: 1.3; }
+    .author-type { display: block; color: var(--muted); font-size: .77rem; }
+
+    /* 影片 */
+    .video-section { padding-block: 5px 76px; }
+    .video-panel { display: grid; grid-template-columns: minmax(0, 560px) 1fr; align-items: center; gap: clamp(28px, 5vw, 58px); }
+    .video-frame { aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: #03060c; box-shadow: 0 20px 55px rgba(0,0,0,.24); }
+    .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .video-copy .section-title { font-size: clamp(1.8rem, 3vw, 2.45rem); }
+    .video-copy p:not(.eyebrow) { margin: 14px 0 0; color: var(--muted); }
+
+    /* 結尾 CTA 與頁尾 */
+    .cta-banner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 78px;
+      gap: 24px;
+      margin-bottom: 48px;
+      padding: 30px 34px;
+      border: 1px solid rgba(40,215,255,.2);
+      border-radius: 15px;
+      background: radial-gradient(ellipse at 88% 20%, rgba(154,107,255,.16), transparent 38%), linear-gradient(120deg, #111c2d, #101625);
     }
-    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: max-content; }
-    .brand-mark {
-      display: grid;
-      width: 29px;
-      height: 29px;
-      place-items: center;
-      border: 1px solid var(--sky);
-      border-radius: 50%;
-      color: var(--sky);
-      font-family: "Playfair Display", serif;
-      font-size: 16px;
-      line-height: 1;
-    }
-    .brand-name { display: grid; gap: 0; font-size: 13px; font-weight: 600; letter-spacing: .08em; line-height: 1.3; }
-    .brand-name small { color: var(--sky); font-size: 8px; font-weight: 700; letter-spacing: .16em; }
-    .nav-links { display: flex; align-items: center; gap: 29px; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { position: relative; display: inline-block; padding: 8px 0; font-size: 13px; font-weight: 500; }
-    .nav-links a:not(.nav-cta)::after {
-      position: absolute;
-      right: 0;
-      bottom: 2px;
-      width: 0;
-      height: 1px;
-      background: var(--sky);
-      content: "";
-      transition: width .25s ease;
-    }
-    .nav-links a:not(.nav-cta):hover::after { right: auto; left: 0; width: 100%; }
-    .nav-links .nav-cta { padding: 7px 13px; border: 1px solid rgba(255,255,255,.9); transition: color .2s ease, background .2s ease; }
-    .nav-links .nav-cta:hover { color: var(--navy); background: #fff; }
-    .menu-toggle { display: none; border: 0; background: transparent; color: #fff; font-size: 26px; line-height: 1; }
+    .cta-banner .eyebrow { margin-bottom: 9px; }
+    .cta-title { margin: 0; font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: -.035em; line-height: 1.3; }
+    .site-footer { border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 27px; color: var(--muted); font-size: .85rem; }
+    .footer-inner .brand { color: var(--text); }
+    .footer-summary { margin: 0; }
 
-    /* Hero */
-    .hero {
-      position: relative;
-      isolation: isolate;
-      display: grid;
-      min-height: 704px;
-      overflow: hidden;
-      color: #fff;
-      background:
-        radial-gradient(circle at 83% 25%, rgba(117,198,232,.42), transparent 16%),
-        radial-gradient(circle at 80% 57%, rgba(16,99,150,.52), transparent 28%),
-        linear-gradient(122deg, #041e35 0%, var(--navy) 52%, #084b7c 100%);
-    }
-    .hero::before, .hero::after { position: absolute; z-index: -1; border: 1px solid rgba(117,198,232,.22); border-radius: 50%; content: ""; }
-    .hero::before { width: 610px; height: 610px; top: -250px; right: -134px; }
-    .hero::after { width: 410px; height: 410px; top: -150px; right: -35px; }
-    .hero-inner { display: grid; grid-template-columns: 1.02fr .98fr; gap: 45px; align-items: center; width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 122px 0 72px; }
-    .hero .eyebrow { color: var(--sky); }
-    .hero-title { max-width: 650px; margin: 0; font-family: "Noto Serif TC", serif; font-size: clamp(42px, 5.5vw, 68px); font-weight: 900; letter-spacing: .06em; line-height: 1.22; }
-    .hero-title .sky-text { color: var(--sky); }
-    .hero-lede { max-width: 535px; margin: 26px 0 0; color: rgba(255,255,255,.77); font-size: 16px; line-height: 1.9; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 12px 23px;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: transform .2s ease, box-shadow .2s ease, color .2s ease, background .2s ease;
-    }
-    .button:hover { transform: translateY(-2px); box-shadow: 0 9px 20px rgba(0,0,0,.15); }
-    .button-primary { color: var(--navy); background: var(--sand); }
-    .button-secondary { border-color: rgba(255,255,255,.85); color: #fff; background: transparent; }
-    .button-secondary:hover { color: var(--navy); background: #fff; }
-    .hero-place { margin: 32px 0 0; color: rgba(255,255,255,.58); font-size: 10px; font-weight: 700; letter-spacing: .17em; }
-    .scroll-hint { position: absolute; bottom: 31px; left: max(24px, calc((100% - 1120px) / 2)); display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.52); font-size: 9px; font-weight: 700; letter-spacing: .16em; }
-    .scroll-hint::before { width: 38px; height: 1px; background: currentColor; content: ""; }
-    .hero-art { position: relative; justify-self: end; width: min(100%, 450px); padding: 21px 21px 25px 0; }
-    .hero-art::before { position: absolute; top: 1px; right: 0; width: 310px; height: 310px; border: 1px solid rgba(255,255,255,.26); border-radius: 50%; content: ""; }
-    .hero-art::after { position: absolute; right: 34px; bottom: -20px; width: 205px; height: 205px; border: 1px solid rgba(117,198,232,.4); border-radius: 50%; content: ""; }
-    .hero-photo { position: relative; z-index: 1; width: 400px; height: 300px; margin-left: auto; object-fit: cover; box-shadow: var(--shadow); }
-    .art-note { position: absolute; z-index: 2; right: -16px; bottom: 15px; display: grid; width: 113px; gap: 1px; padding: 14px 15px; color: #fff; background: rgba(6,39,66,.91); box-shadow: var(--shadow); }
-    .art-note strong { color: var(--sand); font-family: "Playfair Display", serif; font-size: 27px; font-weight: 600; line-height: 1; }
-    .art-note span { font-size: 10px; font-weight: 700; letter-spacing: .08em; }
-    .art-note small { color: rgba(255,255,255,.64); font-size: 9px; line-height: 1.45; }
-
-    /* Story */
-    .story { padding: 118px 0; background: #fff; }
-    .story-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(45px, 8vw, 105px); align-items: center; }
-    .story-visual { position: relative; min-height: 390px; }
-    .story-disc { position: absolute; top: 0; left: 0; display: grid; width: 305px; height: 305px; place-content: center; border: 1px solid var(--sky); border-radius: 50%; color: var(--blue); text-align: center; background: var(--mist); }
-    .story-disc::before, .story-disc::after { position: absolute; border: 1px solid rgba(12,91,149,.2); border-radius: 50%; content: ""; }
-    .story-disc::before { inset: 19px; }
-    .story-disc::after { inset: 42px; }
-    .story-disc b { position: relative; z-index: 1; font-family: "Noto Serif TC", serif; font-size: 28px; letter-spacing: .08em; }
-    .story-disc span { position: relative; z-index: 1; margin-top: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
-    .story-card { position: absolute; right: 0; bottom: 0; width: 235px; padding: 28px; color: #fff; background: var(--navy); box-shadow: var(--shadow); }
-    .story-card .card-label { display: block; color: var(--sky); font-size: 10px; font-weight: 700; letter-spacing: .17em; }
-    .story-card p { margin: 15px 0 0; font-family: "Noto Serif TC", serif; font-size: 18px; line-height: 1.65; }
-    .story-copy p { max-width: 570px; margin: 21px 0 0; color: var(--muted); }
-    .story-copy p + p { margin-top: 14px; color: var(--ink); font-weight: 500; }
-
-    /* Coffee */
-    .coffee { padding: 114px 0 120px; background: var(--mist); }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 43px; }
-    .section-heading .section-copy { max-width: 310px; margin: 0; font-size: 14px; }
-    .coffee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 19px; }
-    .coffee-card { position: relative; display: flex; flex-direction: column; min-height: 384px; overflow: hidden; padding: 30px; color: #fff; background: var(--navy); box-shadow: var(--shadow); }
-    .coffee-card:nth-child(2) { background: #106396; }
-    .coffee-card:nth-child(3) { background: #164c68; }
-    .coffee-card::before, .coffee-card::after { position: absolute; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; content: ""; }
-    .coffee-card::before { width: 245px; height: 245px; right: -107px; bottom: -110px; }
-    .coffee-card::after { width: 183px; height: 183px; right: -76px; bottom: -78px; }
-    .coffee-card > * { position: relative; z-index: 1; }
-    .coffee-number { color: var(--sky); font-family: "Playfair Display", serif; font-size: 13px; font-weight: 700; letter-spacing: .1em; }
-    .coffee-origin { margin-top: 37px; color: rgba(255,255,255,.58); font-size: 10px; font-weight: 700; letter-spacing: .15em; }
-    .coffee-name { margin: 9px 0 0; font-family: "Noto Serif TC", serif; font-size: 25px; font-weight: 700; line-height: 1.45; }
-    .coffee-taste { margin: 16px 0 0; color: rgba(255,255,255,.77); font-size: 14px; }
-    .coffee-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.2); }
-    .coffee-price { font-family: "Playfair Display", serif; font-size: 14px; font-weight: 600; white-space: nowrap; }
-    .collect-button { padding: 4px 0; border: 0; color: #fff; background: transparent; font-size: 13px; font-weight: 700; white-space: nowrap; transition: color .2s ease; }
-    .collect-button:hover { color: var(--sand); }
-
-    /* Brew */
-    .brew { padding: 118px 0; background: #fff; }
-    .brew-grid { display: grid; grid-template-columns: .93fr 1.07fr; gap: clamp(45px, 8vw, 95px); align-items: center; }
-    .video-frame { position: relative; overflow: hidden; padding: 43px 0 30px; background: linear-gradient(90deg, var(--mist) 0 58%, #f5f9f9 58%); }
-    .video-frame::before { position: absolute; top: 43px; left: 0; width: 86px; height: 1px; background: var(--sky); box-shadow: 0 10px 0 var(--sky), 0 20px 0 var(--sky); content: ""; }
-    .video-frame iframe { position: relative; z-index: 1; display: block; width: 560px; max-width: 100%; height: auto; aspect-ratio: 16 / 9; margin: 0 auto; border: 0; background: var(--navy); box-shadow: var(--shadow); }
-    .pour-rings, .pour-rings::before, .pour-rings::after { position: absolute; border: 1px solid rgba(12,91,149,.36); border-radius: 50%; content: ""; }
-    .pour-rings { top: 85px; left: 50%; width: 192px; height: 192px; transform: translateX(-50%); }
-    .pour-rings::before { inset: 22px; }
-    .pour-rings::after { inset: 47px; }
-    .dripper { position: absolute; z-index: 1; top: 118px; left: 50%; width: 128px; height: 164px; transform: translateX(-50%); }
-    .dripper-top { width: 128px; height: 60px; border: 2px solid var(--blue); clip-path: polygon(0 0, 100% 0, 75% 100%, 25% 100%); background: rgba(255,255,255,.8); }
-    .dripper-top::after { position: absolute; top: 9px; left: 18px; width: 92px; height: 31px; border: 1px solid rgba(12,91,149,.55); border-radius: 50%; content: ""; }
-    .dripper-body { position: absolute; top: 58px; left: 32px; width: 64px; height: 80px; border: 2px solid var(--blue); border-top: 0; clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%); background: rgba(255,255,255,.42); }
-    .dripper-base { position: absolute; bottom: 0; left: 15px; width: 98px; height: 21px; border: 2px solid var(--blue); border-radius: 50%; background: #fff; }
-    .brew-data { position: absolute; right: 25px; bottom: 22px; display: grid; justify-items: end; color: var(--blue); font-family: "Playfair Display", serif; font-size: 13px; font-weight: 700; letter-spacing: .05em; line-height: 1.5; }
-    .brew-data small { color: var(--muted); font-family: "Noto Sans TC", sans-serif; font-size: 10px; letter-spacing: .12em; }
-    .brew-copy .section-copy { margin-bottom: 28px; }
-    .brew-steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-    .brew-steps li { display: grid; grid-template-columns: 55px 1fr; gap: 12px; padding: 19px 0; border-bottom: 1px solid var(--line); }
-    .step-number { color: var(--blue); font-family: "Playfair Display", serif; font-size: 24px; font-weight: 700; line-height: 1.2; }
-    .step-content strong { display: block; font-size: 15px; }
-    .step-content p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
-
-    /* Subscribe and footer */
-    .visit { position: relative; overflow: hidden; padding: 110px 0; color: #fff; text-align: center; background: var(--navy); }
-    .visit::before, .visit::after { position: absolute; width: 370px; height: 370px; border: 1px solid rgba(117,198,232,.25); border-radius: 50%; content: ""; }
-    .visit::before { top: -233px; left: -120px; }
-    .visit::after { right: -136px; bottom: -270px; }
-    .visit-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
-    .visit .eyebrow { justify-content: center; color: var(--sky); }
-    .visit-title { margin: 0; font-family: "Noto Serif TC", serif; font-size: clamp(30px, 4.5vw, 47px); font-weight: 900; letter-spacing: .045em; line-height: 1.3; }
-    .visit-copy { max-width: 490px; margin: 20px auto 0; color: rgba(255,255,255,.72); }
-    .subscribe-form { display: flex; max-width: 555px; margin: 34px auto 0; padding: 5px; border: 1px solid rgba(255,255,255,.45); }
-    .subscribe-form input { min-width: 0; flex: 1; padding: 12px 15px; border: 0; outline: 0; color: #fff; background: transparent; }
-    .subscribe-form input::placeholder { color: rgba(255,255,255,.54); }
-    .subscribe-form .button { flex: 0 0 auto; min-height: 48px; border: 0; }
-    .site-footer { padding: 65px 0 23px; color: rgba(255,255,255,.63); background: #031c31; }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr .8fr 1fr; gap: 60px; }
-    .footer-brand .brand { color: #fff; }
-    .footer-brand p { max-width: 300px; margin: 17px 0 0; font-size: 13px; line-height: 1.8; }
-    .footer-title { margin: 2px 0 13px; color: var(--sky); font-size: 11px; font-weight: 700; letter-spacing: .16em; }
-    .footer-links { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; font-size: 13px; }
-    .footer-links a:hover { color: #fff; }
-    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 55px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.13); font-size: 9px; font-weight: 700; letter-spacing: .1em; }
-
-    /* Motion */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .toast { position: fixed; z-index: 30; right: 22px; bottom: 22px; max-width: min(360px, calc(100% - 44px)); padding: 14px 18px; border-left: 3px solid var(--sand); color: #fff; background: var(--navy); box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; }
-    .toast.show { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 820px) {
-      .nav-bar { position: relative; }
-      .menu-toggle { display: block; }
-      .nav-links { position: absolute; top: 78px; left: -24px; right: -24px; display: grid; gap: 0; max-height: 0; overflow: hidden; padding: 0 24px; background: #05233c; transition: max-height .3s ease, padding .3s ease; }
-      .nav-links.open { max-height: 300px; padding-top: 11px; padding-bottom: 16px; }
-      .nav-links a { display: block; padding: 10px 0; }
-      .nav-links .nav-cta { display: inline-block; margin-top: 6px; padding: 8px 12px; }
-      .hero { min-height: 710px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 18px; padding-top: 118px; }
-      .hero-art { width: min(100%, 510px); margin: 0 auto; padding-top: 0; justify-self: center; transform: scale(.72); transform-origin: top center; height: 245px; }
-      .scroll-hint { display: none; }
-      .story-grid, .brew-grid { grid-template-columns: 1fr; }
-      .story-visual { max-width: 450px; width: 100%; margin: 0 auto; }
-      .coffee-grid { grid-template-columns: repeat(2, 1fr); }
-      .coffee-card:nth-child(3) { grid-column: span 2; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 38px; }
-      .footer-brand { grid-column: span 2; }
+    @media (max-width: 800px) {
+      .hero { min-height: 0; grid-template-columns: 1fr; gap: 18px; padding-top: 66px; }
+      .hero-content { max-width: 680px; }
+      .hero-visual { min-height: 270px; }
+      .hero-frame { width: min(100%, 360px); }
+      .headset-icon { font-size: 6rem; }
+      .gear-grid, .review-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .compare-panel { grid-template-columns: 1fr; }
+      .section-heading { flex-direction: column; align-items: flex-start; }
+      .section-heading .section-copy { max-width: 520px; }
+      .video-panel { grid-template-columns: 1fr; }
+      .video-frame { width: min(100%, 560px); }
+      .video-copy { max-width: 620px; }
     }
 
-    @media (max-width: 560px) {
-      .wrap, .hero-inner { width: calc(100% - 34px); }
-      .brand-name { font-size: 12px; }
-      .hero { min-height: 680px; }
-      .hero-inner { padding-top: 109px; padding-bottom: 37px; }
-      .hero-title { font-size: 40px; }
-      .hero-lede { margin-top: 19px; font-size: 14px; line-height: 1.85; }
-      .hero-actions { margin-top: 24px; }
-      .hero-place { margin-top: 22px; }
-      .hero-art { height: 203px; transform: scale(.62); }
-      .art-note { display: none; }
-      .story, .coffee, .brew, .visit { padding-top: 76px; padding-bottom: 76px; }
-      .story-visual { min-height: 330px; }
-      .story-disc { width: 245px; height: 245px; }
-      .story-disc b { font-size: 23px; }
-      .story-card { width: 185px; padding: 21px; }
-      .story-card p { font-size: 15px; }
-      .section-heading { display: block; margin-bottom: 31px; }
-      .section-heading .section-copy { margin-top: 15px; }
-      .coffee-grid { grid-template-columns: 1fr; }
-      .coffee-card, .coffee-card:nth-child(3) { grid-column: auto; min-height: 330px; }
-      .video-frame { padding: 36px 0 21px; min-height: 310px; }
-      .video-frame::before { top: 36px; width: 62px; }
-      .subscribe-form { display: grid; gap: 7px; padding: 0; border: 0; }
-      .subscribe-form input { width: 100%; min-height: 51px; border: 1px solid rgba(255,255,255,.45); }
-      .subscribe-form .button { width: 100%; }
-      .footer-grid { grid-template-columns: 1fr; gap: 31px; }
-      .footer-brand { grid-column: auto; }
-      .footer-bottom { display: grid; gap: 9px; margin-top: 39px; line-height: 1.6; }
+    @media (max-width: 540px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .nav-bar { min-height: 66px; gap: 12px; }
+      .nav-links { gap: 0; }
+      .nav-links li:not(:last-child) { display: none; }
+      .nav-links .nav-cta { padding: 9px 12px; font-size: .82rem; }
+      .hero { padding-block: 48px 45px; }
+      .hero-title { font-size: 3rem; }
+      .hero-stats { gap: 18px; }
+      .hero-stats strong { font-size: .95rem; }
+      .hero-stats span { font-size: .72rem; }
+      .section { padding-block: 55px; }
+      .gear-grid, .review-grid { grid-template-columns: 1fr; }
+      .compare-section { padding-block: 0 55px; }
+      .compare-panel { gap: 24px; padding: 22px; }
+      .video-section { padding-block: 0 55px; }
+      .cta-banner { align-items: flex-start; flex-direction: column; margin-bottom: 34px; padding: 24px 22px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 12px; padding-block: 22px; }
+      .hero-frame { aspect-ratio: 1.3; }
+      .product-card { padding: 20px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-      .reveal { opacity: 1; transform: none; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-  <header class="site-header" id="top">
+  <header class="site-header">
     <nav class="nav-bar wrap" aria-label="主要導覽">
-      <a class="brand" href="#top" aria-label="回到藍天咖啡首頁">
-        <span class="brand-mark" aria-hidden="true">B</span>
-        <span class="brand-name">藍天咖啡 <small>BLUE SKY COFFEE</small></span>
+      <a class="brand" href="#home" aria-label="Nexus Gear 首頁">
+        <span class="brand-mark" aria-hidden="true">N</span>
+        <span>NEXUS <span class="brand-gear">GEAR</span></span>
       </a>
-      <button class="menu-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="開啟導覽選單">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#story">我們的故事</a></li>
-        <li><a href="#coffee">本季選豆</a></li>
-        <li><a href="#brew">沖煮日常</a></li>
-        <li><a class="nav-cta" href="#visit">訂閱風味通信</a></li>
+      <ul class="nav-links">
+        <li><a href="#gear">裝備系列</a></li>
+        <li><a href="#compare">規格比較</a></li>
+        <li><a href="#reviews">玩家評價</a></li>
+        <li><a class="nav-cta" href="#gear">探索裝備 ↗</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="hero-inner">
-        <div class="hero-content reveal">
-          <p class="eyebrow">HAND BREWED · SLOWLY ROASTED</p>
-          <h1 class="hero-title" id="heroTitle">讓風味，在<span class="sky-text">藍天</span>下<br>慢慢抵達。</h1>
-          <p class="hero-lede">藍天咖啡為喜歡手沖的您，挑選值得細品的單一產區咖啡豆。從第一縷花香，到最後一口回甘，每一杯都有屬於自己的晴朗天氣。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#coffee">探索本季咖啡豆 →</a>
-            <a class="button button-secondary" href="#story">認識藍天</a>
-          </div>
-          <p class="hero-place">TAIPEI · TAIWAN · EST. 2025</p>
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Performance starts here</p>
+        <h1 class="hero-title" id="hero-title">專注每一瞬，<span>為勝利而生。</span></h1>
+        <p class="hero-lede">精準操作、即時回饋，讓每個關鍵決策都快人一步。找到真正適合你的電競裝備，打出自己的節奏。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#gear">探索裝備 <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="#compare">查看規格</a>
         </div>
-        <div class="hero-art reveal" aria-label="窗邊手沖咖啡與山景">
-          <img class="hero-photo" src="images/hero.png" width="400" height="300" alt="窗邊的手沖咖啡與遠方山景">
-          <div class="art-note" aria-hidden="true"><strong>92°C</strong><span>理想水溫</span><small>細細喚醒香氣</small></div>
-        </div>
+        <ul class="hero-stats" aria-label="品牌特色">
+          <li><strong>1 ms</strong><span>極速回報</span></li>
+          <li><strong>100%</strong><span>專注操控</span></li>
+          <li><strong>為玩家</strong><span>精心打造</span></li>
+        </ul>
       </div>
-      <span class="scroll-hint" aria-hidden="true">SCROLL TO DISCOVER</span>
-    </section>
-
-    <section class="story" id="story" aria-labelledby="storyTitle">
-      <div class="wrap story-grid">
-        <div class="story-visual reveal" aria-hidden="true">
-          <div class="story-disc"><b>慢一點，<br>更清楚。</b><span>LET THE FLAVOUR SPEAK</span></div>
-          <div class="story-card"><span class="card-label">BLUE SKY NOTE</span><p>一杯好咖啡，從來不是匆忙完成的事。</p></div>
-        </div>
-        <div class="story-copy reveal">
-          <p class="eyebrow">OUR PHILOSOPHY</p>
-          <h2 class="section-title" id="storyTitle">在一杯之間，看見產地的<span class="blue-word">晴朗</span>。</h2>
-          <p>我們相信，精品咖啡的美好不該被複雜掩蓋。以小批次烘焙留住豆子的個性，再用穩定、誠實的手沖，讓風土與時間在杯中變得清晰。</p>
-          <p>給懂得放慢腳步的人，也給每一個想重新認識咖啡的人。</p>
-          <a class="text-link" href="#brew">看看我們如何沖煮 →</a>
+      <div class="hero-visual" role="img" aria-label="電競耳機產品視覺">
+        <div class="hero-frame">
+          <img src="images/hero.jpg" width="400" height="300" alt="配備電腦、耳機與多螢幕的電競遊戲空間">
+          <span class="headset-icon" aria-hidden="true">🎧</span>
+          <div class="hero-frame-label"><span>NEXUS / ELITE SERIES</span><span>NG—03</span></div>
         </div>
       </div>
     </section>
 
-    <section class="coffee" id="coffee" aria-labelledby="coffeeTitle">
-      <div class="wrap">
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow">SEASONAL SELECTION</p>
-            <h2 class="section-title" id="coffeeTitle">今天，想喝哪一片<span class="blue-word">藍天</span>？</h2>
-          </div>
-          <p class="section-copy">三款當季單品，為不同的晨光、午後與靜夜而選。</p>
+    <section class="section wrap" id="gear" aria-labelledby="gear-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Built for your game</p>
+          <h2 class="section-title" id="gear-title">裝備你的最佳狀態</h2>
         </div>
-        <div class="coffee-grid">
-          <article class="coffee-card reveal">
-            <span class="coffee-number">01 / BRIGHT</span>
-            <span class="coffee-origin">ETHIOPIA · YIRGACHEFFE</span>
-            <h3 class="coffee-name">衣索比亞・<br>耶加雪菲</h3>
-            <p class="coffee-taste">白花、佛手柑、蜂蜜</p>
-            <div class="coffee-footer"><span class="coffee-price">NT$ 520 / 200g</span><button class="collect-button" type="button" data-coffee="衣索比亞・耶加雪菲">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <span class="coffee-number">02 / JUICY</span>
-            <span class="coffee-origin">KENYA · KIRINYAGA</span>
-            <h3 class="coffee-name">肯亞・<br>祈安布</h3>
-            <p class="coffee-taste">黑醋栗、洛神、葡萄柚</p>
-            <div class="coffee-footer"><span class="coffee-price">NT$ 580 / 200g</span><button class="collect-button" type="button" data-coffee="肯亞・祈安布">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <span class="coffee-number">03 / ROUND</span>
-            <span class="coffee-origin">COLOMBIA · HUILA</span>
-            <h3 class="coffee-name">哥倫比亞・<br>慧蘭</h3>
-            <p class="coffee-taste">黃桃、焦糖、可可尾韻</p>
-            <div class="coffee-footer"><span class="coffee-price">NT$ 460 / 200g</span><button class="collect-button" type="button" data-coffee="哥倫比亞・慧蘭">加入收藏 ＋</button></div>
-          </article>
+        <p class="section-copy">從快速反應到長時間舒適配戴，每件裝備都為穩定發揮而設計。</p>
+      </div>
+      <div class="gear-grid">
+        <article class="product-card">
+          <div class="product-visual" aria-hidden="true">⌖</div>
+          <p class="product-meta">MOUSE / NG-01</p>
+          <h3 class="product-name">Phantom X 無線滑鼠</h3>
+          <p class="product-description">輕量化機身搭配高精度感測器，移動與瞄準都俐落到位。</p>
+          <div class="product-footer"><span class="product-price">NT$ 2,490 起</span><a class="text-link" href="#compare">看規格 →</a></div>
+        </article>
+        <article class="product-card">
+          <div class="product-visual" aria-hidden="true">⌨</div>
+          <p class="product-meta">KEYBOARD / NG-02</p>
+          <h3 class="product-name">Pulse 75 機械鍵盤</h3>
+          <p class="product-description">快速觸發與紮實回饋，為每一次連招保留清晰手感。</p>
+          <div class="product-footer"><span class="product-price">NT$ 3,290 起</span><a class="text-link" href="#compare">看規格 →</a></div>
+        </article>
+        <article class="product-card">
+          <div class="product-visual" aria-hidden="true">🎧</div>
+          <p class="product-meta">HEADSET / NG-03</p>
+          <h3 class="product-name">Echo Pro 電競耳機</h3>
+          <p class="product-description">清晰定位音效與舒適耳罩，長時間遊戲依然自在。</p>
+          <div class="product-footer"><span class="product-price">NT$ 3,990 起</span><a class="text-link" href="#compare">看規格 →</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="compare-section wrap" id="compare" aria-labelledby="compare-title">
+      <div class="compare-panel">
+        <div class="compare-copy">
+          <p class="eyebrow">Choose your edge</p>
+          <h2 class="section-title" id="compare-title">規格一眼比較</h2>
+          <p class="section-copy">依照你的遊戲習慣挑選合適裝備，快速掌握系列特色。</p>
+          <a class="text-link compare-link" href="#reviews">看看玩家怎麼說 →</a>
+        </div>
+        <div class="table-scroll" role="region" aria-label="電競裝備規格比較表" tabindex="0">
+          <table class="spec-table">
+            <thead>
+              <tr><th scope="col">型號</th><th scope="col">核心特色</th><th scope="col">連線／類型</th><th scope="col">適合玩家</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Phantom X</th><td>高精度感測</td><td>2.4G / 有線</td><td>FPS、競技</td></tr>
+              <tr><th scope="row">Pulse 75</th><td>快速觸發</td><td>機械式 75%</td><td>全能、連招</td></tr>
+              <tr><th scope="row">Echo Pro</th><td>定位音效</td><td>USB / 3.5 mm</td><td>團隊、沉浸</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <section class="brew" id="brew" aria-labelledby="brewTitle">
-      <div class="wrap brew-grid">
-        <div class="video-frame reveal">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/hMOYa4EBntI" title="藍天咖啡沖煮影片" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <section class="section wrap" id="reviews" aria-labelledby="reviews-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">From the community</p>
+          <h2 class="section-title" id="reviews-title">玩家實戰心得</h2>
         </div>
-        <div class="brew-copy reveal">
-          <p class="eyebrow">A QUIET RITUAL</p>
-          <h2 class="section-title" id="brewTitle">把時間交給水，讓咖啡說<span class="blue-word">自己的話</span>。</h2>
-          <p class="section-copy">不需要繁複儀式，只要三個安靜的步驟。每一個參數，都是為了讓你更靠近豆子原本的樣子。</p>
-          <ol class="brew-steps">
-            <li><span class="step-number">01</span><div class="step-content"><strong>研磨，先聞見期待</strong><p>15g 中細研磨，讓香氣從指尖開始展開。</p></div></li>
-            <li><span class="step-number">02</span><div class="step-content"><strong>悶蒸，等待第一個呼吸</strong><p>以 92°C 熱水浸潤 30 秒，喚醒甜感與層次。</p></div></li>
-            <li><span class="step-number">03</span><div class="step-content"><strong>注水，保持自己的節奏</strong><p>穩定畫圈，讓 240ml 的清澈在 2 分 45 秒完成。</p></div></li>
-          </ol>
+        <p class="section-copy">好裝備的差別，來自每一場對戰裡真實的手感與回饋。</p>
+      </div>
+      <div class="review-grid">
+        <article class="review-card">
+          <span class="stars" role="img" aria-label="5 顆星">★★★★★</span>
+          <blockquote class="review-quote">「滑鼠很輕，甩槍跟追蹤都很順，打久了手腕也比較不容易累。」</blockquote>
+          <div class="review-author"><span class="avatar" aria-hidden="true">A</span><div><span class="author-name">Alan</span><span class="author-type">競技 FPS 玩家</span></div></div>
+        </article>
+        <article class="review-card">
+          <span class="stars" role="img" aria-label="5 顆星">★★★★★</span>
+          <blockquote class="review-quote">「鍵盤回饋乾脆，觸發速度很合我的習慣，桌面配置也剛剛好。」</blockquote>
+          <div class="review-author"><span class="avatar" aria-hidden="true">M</span><div><span class="author-name">Mina</span><span class="author-type">多款遊戲玩家</span></div></div>
+        </article>
+        <article class="review-card">
+          <span class="stars" role="img" aria-label="5 顆星">★★★★★</span>
+          <blockquote class="review-quote">「耳機定位清楚，隊友方向很好辨認，長時間戴著也舒服。」</blockquote>
+          <div class="review-author"><span class="avatar" aria-hidden="true">J</span><div><span class="author-name">Jason</span><span class="author-type">團隊競技玩家</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="video-section wrap" aria-labelledby="video-title">
+      <div class="video-panel">
+        <div class="video-frame">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/g2vE87V-ucs" title="Nexus Gear 電競周邊介紹影片" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-copy">
+          <p class="eyebrow">Play with precision</p>
+          <h2 class="section-title" id="video-title">準備好，打出自己的節奏。</h2>
+          <p>從手感到定位，看看 Nexus Gear 如何陪你迎接每個關鍵時刻。</p>
         </div>
       </div>
     </section>
 
-    <section class="visit" id="visit" aria-labelledby="visitTitle">
-      <div class="wrap visit-inner reveal">
-        <p class="eyebrow">THE BLUE SKY LETTER</p>
-        <h2 class="visit-title" id="visitTitle">把下一杯好咖啡，寄到你的日常裡。</h2>
-        <p class="visit-copy">每月一封風味通信，分享新豆、沖煮靈感與只給會員的小小驚喜。</p>
-        <form class="subscribe-form" id="subscribeForm">
-          <input type="email" aria-label="電子郵件地址" placeholder="輸入你的電子郵件地址" required>
-          <button class="button button-primary" type="submit">訂閱風味通信</button>
-        </form>
+    <section class="cta-banner wrap" aria-label="探索 Nexus Gear 裝備">
+      <div>
+        <p class="eyebrow">Find your advantage</p>
+        <h2 class="cta-title">下一場對戰，讓裝備跟上你的節奏。</h2>
       </div>
+      <a class="button button-primary" href="#gear">探索全系列裝備 <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#top" aria-label="回到藍天咖啡首頁"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">藍天咖啡 <small>BLUE SKY COFFEE</small></span></a>
-          <p>為喜愛手沖咖啡的你，留下一段慢慢品味、微微放晴的時間。</p>
-        </div>
-        <div>
-          <p class="footer-title">網站主題</p>
-          <ul class="footer-links"><li><a href="#story">我們的故事</a></li><li><a href="#coffee">本季選豆</a></li><li><a href="#brew">沖煮日常</a></li></ul>
-        </div>
-        <div>
-          <p class="footer-title">聯絡我們</p>
-          <ul class="footer-links"><li><a href="mailto:hello@bluesky.coffee">hello@bluesky.coffee</a></li><li>台中市西屯區僑光路 100 號</li><li>每日 10:00 — 19:00</li></ul>
-        </div>
-      </div>
-      <div class="footer-bottom"><span>© 2025 BLUE SKY COFFEE. ALL RIGHTS RESERVED.</span><span>BREW SLOW · LIVE BRIGHT</span></div>
+    <div class="footer-inner wrap">
+      <a class="brand" href="#home" aria-label="Nexus Gear 回到首頁"><span class="brand-mark" aria-hidden="true">N</span><span>NEXUS <span class="brand-gear">GEAR</span></span></a>
+      <p class="footer-summary">© 2026 Nexus Gear．為玩家打造的電競周邊提案</p>
+      <p class="footer-summary">裝備展示・規格比較・玩家交流</p>
     </div>
   </footer>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const toast = document.querySelector('#toast');
-    let toastTimer;
-
-    function closeMenu() {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', '開啟導覽選單');
-      menuToggle.textContent = '☰';
-    }
-
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      menuToggle.setAttribute('aria-label', isOpen ? '關閉導覽選單' : '開啟導覽選單');
-      menuToggle.textContent = isOpen ? '×' : '☰';
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-
-    function showToast(message) {
-      window.clearTimeout(toastTimer);
-      toast.textContent = message;
-      toast.classList.add('show');
-      toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2600);
-    }
-
-    document.querySelectorAll('[data-coffee]').forEach(button => {
-      button.addEventListener('click', () => showToast(`已將「${button.dataset.coffee}」加入你的收藏。`));
-    });
-
-    document.querySelector('#subscribeForm').addEventListener('submit', event => {
-      event.preventDefault();
-      if (!event.currentTarget.checkValidity()) return;
-      event.currentTarget.reset();
-      showToast('謝謝訂閱，下一封晴朗的風味通信即將寄出。');
-    });
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const reveals = document.querySelectorAll('.reveal');
-    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-      reveals.forEach(element => element.classList.add('visible'));
-    } else {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: .12 });
-      reveals.forEach(element => observer.observe(element));
-    }
-  </script>
 </body>
 </html>
